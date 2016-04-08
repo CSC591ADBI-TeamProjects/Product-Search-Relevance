@@ -2,10 +2,10 @@ import sys
 import pandas as pd
 from nltk.stem.snowball import SnowballStemmer
 
-path_to_data = "data/"
+#path_to_data = "data/"
 stemmer = SnowballStemmer("english")
 
-def join_data():
+def join_data(path_to_data):
   df_train = pd.read_csv(path_to_data+'train.csv', encoding="ISO-8859-1")
   #stemming of training data
   df_train["search_term"] = df_train['search_term'].map(lambda x:str_stemmer(x))
