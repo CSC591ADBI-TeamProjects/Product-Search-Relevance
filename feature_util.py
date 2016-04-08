@@ -15,6 +15,7 @@ def get_feature_x(train):
 Returns features from all the feature extraction methods
 '''
 def get_features(train):
+  colNames = []
   features = pd.DataFrame(columns = colNames)
-  feature['X'] = get_feature_x(train)
+  features['X'] = get_feature_x(train)
   return features
