@@ -1,9 +1,11 @@
 import sys
 import pandas as pd
 from nltk.stem.snowball import SnowballStemmer
+from nltk.corpus import stopwords
 
 #path_to_data = "data/"
 stemmer = SnowballStemmer("english")
+stop = stopwords.words('english')
 
 def join_data(path_to_data):
   df_train = pd.read_csv(path_to_data+'train.csv', encoding="ISO-8859-1")
@@ -26,4 +28,5 @@ def join_data(path_to_data):
 
 #takes a string and returns a string with words replaced with their stems
 def str_stemmer(s):
-	return " ".join([stemmer.stem(word) for word in s.lower().split()])
+	temp = " ".join([stemmer.stem(word) if word not in stop else "" for word in s.lower().split()])
+	return temp.replace("  "," ")
