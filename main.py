@@ -5,9 +5,9 @@ import model_util
 import feature_util
 
 if len(sys.argv) != 3:
-    print "python main.py <path_to_data_directory> <model_name>"
-    print "models: glm, ..."
-    exit(1)
+  print "python main.py <path_to_data_directory> <model_name>"
+  print "models: glm, ..."
+  exit(1)
 
 model_param = sys.argv[2]
 path_to_data = sys.argv[1]
