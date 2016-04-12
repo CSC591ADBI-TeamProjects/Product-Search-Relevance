@@ -45,12 +45,12 @@ def get_feature_Tf_Idf(train):
   feature1 = []
   feature2 = []
   #ensure the size is as required
-  corpus_tittle = [x for x in train["product_title"]]
-  corpus_descrition = [x for x in train["product_description"]]
+  corpus_title = [x for x in train["product_title"]]
+  corpus_description = [x for x in train["product_description"]]
   vectorizer1 = TfidfVectorizer(max_df = 1)
   vectorizer2 = TfidfVectorizer(max_df = 1)
-  X1 = vectorizer1.fit_transform(corpus_tittle)
-  X2 = vectorizer2.fit_transform(corpus_descrition)
+  X1 = vectorizer1.fit_transform(corpus_title)
+  X2 = vectorizer2.fit_transform(corpus_description)
   idf1 = vectorizer1.idf_
   idf2 = vectorizer2.idf_
   feature1.append(idf1)
