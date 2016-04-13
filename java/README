@@ -1,0 +1,3 @@
+A small Spark script to combine the attributes. The output file contains pairs of (ProductID, AttributeString):
+	- Each product has only 1 entry
+	- AttributeString is merged from all attributes of each product: name1 value1 name2 value2...
