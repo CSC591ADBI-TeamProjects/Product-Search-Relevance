@@ -3,18 +3,21 @@ import numpy as np
 import re
 from gensim import corpora, models, similarities
 from gensim.parsing.preprocessing import STOPWORDS
-from sklearn import ensemble
-from sklearn.cross_validation import train_test_split
+
 
 def split(text):
+  '''
+  Split the input text into words/tokens; ignoring stopwords and empty strings
+  '''
   delimiters = ".", ",", ";", ":", "-", "(", ")", " ", "\t"
   regexPattern = '|'.join(map(re.escape, delimiters))
   return [word for word in re.split(regexPattern, text.lower()) if word not in STOPWORDS and word != ""]
 
 def main():
-  df_train = pd.read_csv('../../data/train.csv', encoding="ISO-8859-1")
-  df_desc = pd.read_csv('../../data/product_descriptions.csv', encoding="ISO-8859-1")
-  df_attr = pd.read_csv('../../data/attributes_combined.csv', encoding="ISO-8859-1")
+  # Load data
+  df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
+  df_desc = pd.read_csv('data/product_descriptions.csv', encoding="ISO-8859-1")
+  df_attr = pd.read_csv('data/attributes_combined.csv', encoding="ISO-8859-1")
   
   # split the texts
   titles = [split(line) for line in df_train["product_title"]]
